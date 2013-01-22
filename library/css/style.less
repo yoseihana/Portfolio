@@ -1,25 +1,48 @@
-@paperG:url('../img/paperG.jpg');
-@paperY: url("../img/paperY.jpg");
-@paperR:url("../img/paperR.jpg");
-@paperB:url("../img/paperB.jpg");
-@helvetica: Helvetica, Arial, sans-serif;
-@helveticaN:'Helvetica Neue', 'Arial', sans-serif;
-@colorB: black;
-@colorW: white;
-@Raleway:'Raleway Dots', cursive;
-@Krona: 'Krona One',sans-serif;
-
-@import "grid.less";
-
 /*
 Template: wpTemplate
 Theme Name: wpTemplate
 */
 
+/* DESIGN */
+@paperG:url('../img/paperG.jpg');
+@paperY: url("../img/paperY.jpg");
+@paperR:url("../img/paperR.jpg");
+@paperB:url("../img/paperB.jpg");
+@helvetica: Helvetica, Arial, sans-serif;
+@Kite:'Kite One', sans-serif;
+@colorB: black;
+@colorW: white;
+@colorRed: #BC0D08;
+@colorYellow: #E0CA45;
+@colorBlue: #1959B0;
+@colorGreen: #178B1E;
+
+/* IMPORT */
+@import "grid.less";
+@columns: 12;
+@column-width: 60;
+@gutter-width: 20;
+@total-width: 100%;
+@import "reset.less";
+
+/* FONT */
+@font-face {
+  font-family: 'CaviarDreamsBold';
+  src: url('../fonts/Caviar_Dreams_Bold-webfont.eot');
+  src: url('../fonts/Caviar_Dreams_Bold-webfont.eot?#iefix') format('embedded-opentype'),
+  url('C../fonts/aviar_Dreams_Bold-webfont.woff') format('woff'),
+  url('../fonts/Caviar_Dreams_Bold-webfont.ttf') format('truetype'),
+  url('../fonts/Caviar_Dreams_Bold-webfont.svg#CaviarDreamsBold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@Caviar: 'CaviarDreamsBold', Arial, sans-serif;
+
+
+/* DESIGN CONTENT */
+
 body{
-  margin: 10px auto;
-  min-width: 350px;
-  max-width: 950px;
   font-size: 14px;
   background-image: @paperG;
   font-family: @helvetica;
@@ -27,46 +50,55 @@ body{
   color: @colorB;
 }
 
-/*  CONTENT */
+.container{
+  max-width: 960px;
+  margin: 0 auto;
+  margin-top: 1em;
+}
+
+header{
+  .column(12);
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
 
 p#logo{
-	text-align: center;
+  .column(4);
+  .push(4);
+  height: 50px;
 }
 
 p#logo a{
 	font-size: 2em;
 	text-decoration: none;
-	font-family: @Krona;
+	font-family: @Caviar;
 	color: @colorW;
 }
 
 #content {
-  margin-top: 100px;
-  display: inline-block;
+  .column(12);
 }
 
 #main{
-	float: left;
-	width:  60%;
-	margin-right: 5%;
+	.column(8);
 }
 
 #main article,  #sidebar1, .sidebar{
-	background-color: #F4F0EF;
+	background-color: @colorW;
 	padding: 0.5em;
 	margin-bottom: 1em;
 }
 
-article>div, #categories-2, #archives-2, .page .entry-content, .education, .experience, .profile, .infoSup{
+article>div, #categories-2, #archives-3, .page .entry-content, .education, .experience, .profile, .infoSup{
 	border: 1px dashed #A7A7A7;
 	padding: 1em;
 }
 
-#categories-2, #archives-2, .education, .experience, profile, .infoSup{
+#categories-2, #archives-3, .education, .experience, profile, .infoSup{
 	position:relative
 }
 
-#categories-2 ul, #archives-2 ul, .education ol, .experience ol, .infoSup ul{
+#categories-2 ul, #archives-3 ul, .education ol, .experience ol, .infoSup ul{
 	margin-top: 2.5em;
 }
 
@@ -77,7 +109,7 @@ h3{
 	text-align: center;
 	width:  68%;
 	height: 56px;
-	top: -29px;
+	top: -12px;
 	position:  absolute;
 	margin-left:  14%;
 	padding-top:  1em;
@@ -87,40 +119,42 @@ h3{
 
 a{
 	color:  @colorB;
+  text-decoration: none;
 }
 
 a:hover{
 	text-decoration: underline;
-	color: #178B1E;
+	color: @colorGreen;
 }
 
 .page-id-11 article a:hover{
-	color: #E0CA45;
+	color: @colorYellow;
 }
 
 .right{
-	float: right;
-	width:  30%;
-	margin-right: 5%;
+	.column(4);
 }
 
 h2 {
   font-size: 1.5em;
-  font-family: @Raleway;
+  font-family: @Caviar;
   padding: 0.5em;
   color: black;
-
+  clear: both;
 }
 
 p {
   color: @colorB;
 }
 
-nav {
+  /* Navigation */
+nav{
   background-image: url("../img/navPattern.jpg");
   background-repeat: repeat-x;
-  position: absolute;
-  width:  900px;
+ .column(12);
+  margin-top: 1em;
+  margin-bottom: 1em;
+  height: 55px;
 }
 
 nav ul{
@@ -128,22 +162,22 @@ nav ul{
 }
 
 nav li {
-  height: 50px;
-  float: left;
-  margin: 0.2em 4em 0 4em;
   list-style: none;
+  .column(3);
+  font-size: 1.5em;
 }
 
 nav a {
   color: #f5f5f5;
   text-decoration: none;
   text-shadow: 1px 1px #736A6A;
-  font-family: @Krona;
+  font-family: @Caviar;
   font-weight: bolder;
   font-size: 1.25em;
   color: #EDD432;
-  width:  100px;
-  padding: 0.25em;
+  .column(12);
+  padding: 0.25em 0.25em;
+  margin-top: 0.25em;
 }
 	.page-item-45 a, #menu-item-47 a{
 		color: #0B9E3A;
@@ -159,7 +193,9 @@ nav a {
 nav a:hover{
 	background-image: @paperY;
 	color:  white;
-	padding: 0.25em;
+    .column(12);
+    padding: 0.25em 0.25em;
+    margin-top: 0.25em;
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
 	border-radius: 2px;
@@ -182,36 +218,45 @@ section#content {
   margin-bottom: 2em;
 }
 
-article h1, .archive h1{
-  font-family: @Krona;
-  padding:  15px;
+article header, .archive header{
+  font-family: @Caviar;
   background-image: url("../img/titlePattern.jpeg");
   color: @colorW;
+  height: 55px;
 }
 
-.archive h1{
+aside header{
+  background-image: none;
+  height: 100%;
+}
+
+.archive header h1{
 	padding: 10px;
 }
-.page h1{
-	padding:  18px;
+
+.archive article h1{
+ 	font-size: 1em;
+ }
+.page h1, .blog h1, .archive article h1{
 	color:  @colorW;
+    font-size: 2em;
+    margin: 0.45em;
 }
 
 	h1 a{
 		text-decoration: none;
 		color:  @colorW;
 	}
-	
+
 	h1 a:hover{
 		color:  @colorW;
 	}
 
 article p {
-  text-align: justify;
-  margin: 0 2em 0 1em;
-  font-family: @helveticaN;
+  margin: 0 1em 0 1em;
+  font-family: @Kite;
   font-weight: lighter;
-  line-height: 1.25em;
+  line-height: 1.5em;
 }
 
 .image{
@@ -225,7 +270,7 @@ article p {
 }
 
 li {
-  font-family: @helveticaN;
+  font-family: @Kite;
   color:  black;
   list-style-image: url("../img/boutton.png");
 }
@@ -243,15 +288,19 @@ li p+p {
 	text-align: center;
 }
 
-#skills li{
+ol{
+	padding: 0;
+}
+
+.skills li{
 	list-style: none;
 	height: 25px;
 	margin: 0.5em 0 0.5em 0;
 }
 
-#skills li>p{
+.skills li>p{
 	float: left;
-	width:  100px;
+	width:  125px;
 }
 
 .level1, .level2, .level3, .level4{
@@ -265,19 +314,27 @@ li p+p {
 .level1 p, .level2 p, .level3 p, .level4 p{
 	text-indent:-99999px;
 }
-	
+
 	.level2{
 		background-position: 0 -25px;
 	}
-	
+
 	.level3{
 		background-position: 0 -50px;
 	}
-	
+
 	.level4{
 		background-position: 0 -75px;
 	}
-	
+
+article.education li, article.experience li{
+	margin: 1em 0 1em 1.5em;
+}
+
+.titleSidebar{
+	margin-bottom: 0.25em;
+	font-weight: bold
+}
 /*  Page blog */
 .wp-prev-next{
 	background-image: none;
@@ -293,12 +350,34 @@ li p+p {
 .wp-prev-next a, .wp-prev-next li{
 	color: white;
 	font-size: 1em;
-	font-family:@Krona;
+	font-family:@Caviar;
 }
 
 .wp-prev-next li a:hover{
-	color: #273246;
+	color: @colorBlue;
 	background-image: none;
+}
+
+.tags{
+	margin: 1em 1em;
+	color: @colorGreen
+}
+
+.byline{
+	color:@colorGreen;
+}
+
+.blog article section, .archive article section{
+	padding: 1em;
+	border: 1px dashed #A7A7A7;
+}
+
+.blog .entry-content, .archive .entry-content{
+	border: none;
+}
+
+#archives-3 li, #categories-2 li{
+	margin-bottom: 0.5em;
 }
 
 /* Page portfolio */
@@ -330,8 +409,16 @@ li p+p {
 	display: inline-block;
 }
 
-.page-id-40 ol p+p{
+#page-40 ol p+p{
 	margin: 0.5em 0;
+}
+
+#post-40 a:hover{
+	color: @colorBlue;
+}
+
+.page-id-40 h2{
+	margin: 0.5em;
 }
 
 /* Page contact */
@@ -341,7 +428,7 @@ li p+p {
 
 
 .page-id-42 .sidebar a:hover{
-	color: #BC0D08;
+	color: @colorRed;
 }
 
 .page-id-42 #content{
@@ -349,7 +436,7 @@ li p+p {
 }
 
 .infoContact{
-	margin-bottom: -1em;
+	margin-top: 1em;
 	font-weight: bold;
 }
 
@@ -357,16 +444,21 @@ form {
   margin-bottom: 1em;
 }
 
+form p{
+	margin-top: 1em;
+}
+
 input, textarea {
   width: 439px;
   background: 1px solid #dedede;
   padding: 10px;
   margin-top: 3px;
+  margin-bottom: 1em;
   font-size: 0.9em;
   color: #3a3a3a;
-  border-radius:2px;
-  -moz-border-radius:2px;
-  -webkit-border-radius:2px;
+  border-radius:5px;
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
 }
 
 textarea{
@@ -375,6 +467,12 @@ textarea{
 
 [type="submit"]{
 	width: 460px;
+	color: @colorRed;
+	font-family: @Kite;
+}
+[type="submit"]:hover{
+	background-color: @colorRed;
+	color: @colorW;
 }
 
 input:focus, textarea:focus {
@@ -393,170 +491,142 @@ input:focus, textarea:focus {
 	    opacity:0.7;
 	}
 
-label{
-  font-family: @helvetica;
-  color: black;
-  display: block
-  letter-spacing: 20px;
-  margin-top: 25px;
-  font-weight:bold;
-}
 
 /* FOOTER */
 footer {
-  width: 950px;
-  display: inline-block;
-  text-align: center;
+  text-align:center;
+  margin-bottom: 0;
+  background-image: url("../img/navPattern.jpg");
+  background-repeat: repeat-x;
+  width: 100%;
+  clear: both;
+  height: 55px;
 }
 
+/* Page Erreur */
+.error404 #content{
+  width: 100%;
+}
+
+.error404 #main{
+  float: none;
+  width: 100%;
+}
+.error404 article{
+  border: 1px dashed #A7A7A7;
+}
+
+.error404{
+  background-color: blue;
+  background-image: none;
+}
+
+/*************** MEDIA 945px - 770px **************/
+@media only screen and (min-width: 770px) and (max-width: 950px) {
+
+  nav, nav ul{
+    width: 100%
+  }
+
+  nav li{
+    margin: 0.2% 5% 0 5%;
+  }
+
+  article p{
+    margin: 0em;
+  }
+
+  #content{
+    margin: 100px 25px 0 25px;
+  }
+  .page-id-42 #content{
+    width: 100%;
+  }
+
+  .skills li{
+    height: 50px;
+  }
+  .skills li >p{
+    float: none;
+  }
+
+  .level1, .level2, .level3, .level4{
+    margin-left: 1em;
+  }
+
+  .page-id-40 #content{
+    margin: 100px 15px 0px 15px;
+  }
+
+  input, textarea{
+    width: 95%;
+  }
+
+  input[type="submit"]{
+    width: 100%;
+  }
+}
+
+/*************** MEDIA 482px - 768px **************/
+@media only screen and (min-width: 483px) and (max-width: 768px) {
+
+  nav{
+    width: 100%;
+    background-image:none;
+    position: relative;
+  }
+
+  ul{
+    padding: 0px;
+  }
+
+  nav li{
+    float: none;
+    background-image: url("../img/navPattern.jpg");
+    margin: 0em;
+    height: 50px;
+  }
+
+  nav li:last-child{
+    height: 55px;
+  }
+
+  nav a{
+    width: 100%;
+  }
+
+  #content{
+    margin-top: 0px;
+  }
+
+  #main, .right{
+    float: none;
+    width: 100%;
+    margin: 0px;
+  }
+
+  footer{
+    width: 100%;
+  }
+
+  .skills li{
+    height: 50px;
+  }
+  .skills li >p{
+    float: none;
+  }
+
+  .level1, .level2, .level3, .level4{
+    margin-left: 1em;
+  }
+
+}
 
 /*************** MEDIA 481px **************/
 
 @media only screen and (max-width: 481px){
-  nav{
-  	width: 100%;
-  	position: relative;
-  	background-image: none;
+  body.home{
+  /*background-color: yellow;
+  background-image: none;*/
   }
-	nav ul{
-		padding:0;
-	}
-	
-	nav li{
-		float: none;
-		background-image: url("../img/navPattern.jpg");
-		height: 25px;
-		padding: 1em;
-		margin:0;
-		
-	}
-	
-	nav a{
-		text-align: center;
-		display: inline-block;
-		width: 100%;
-	}
-	
-	#skills li{
-		height: 50px;
-	}
-	
-	#content{
-		margin-top: 0;
-	}
-	
-	#main{
-		float: none;
-		width: 100%;
-		margin-right: 0;
-	}
-	
-	.right{
-		float: none;
-		width: 100%;
-		margin-right: 0;
-	}
-	
-	body.page-id-40 article{
-		width: 100%;
-	}
-	
-	body.page-id-40 #main li{
-		float: none;
-		width: 100%;
-		margin: 0;
-	}
-}
-/*************** MEDIA 482px - 768px **************/
-  @media only screen and (min-width: 482px) and (max-width: 768px) {
- 	nav{
- 		width: 100%;
- 		position: relative;
- 	}
- 	nav ul{
- 		padding:0;
- 	}
- 	
- 	nav li{
- 		float: none;
- 		background-image: url("../img/navPattern.jpg");
- 		height: 25px;
- 		padding: 1em;
- 		margin:0;
- 		width: 100%;
- 	}
- 	
- 	nav a{
- 		text-align: center;
- 		display: inline-block;
- 		width: 100%;
- 	}
- 	
- 	#content{
- 		margin-top: 0;
- 	}
- 	
- 	article > div, #categories-2, #archives-2, .page .entry-content, .education, .experience, .profile, .infoSup{
- 		padding:0.25em 0;
- 	}
- 	
- 	#categories-2 ul, #archives-2 ul, .education ol, .experience ol, .infoSup ul{
- 		margin-left: 0;
- 	}
- 	
- 	#skills{
- 		padding: 0 0 0.5em 1em;
- 	}
- 	
- 	#skills li{
- 		height: 50px;
- 	}
- 	
- 	.level1, .level2, .level3, .level4{
- 		background-image: url('../img/progressSmall.png');
- 	}
- 	
- 	img{
-		width: 75%; 
-		height: 75%;	
- 	}
- 	
- 	body.page-id-40 article{
- 		width: 100%
- 	}
-
- 	body.page-id-40 #main li{
- 		float: none;
- 		width: 100%;
- 		margin: 0;
- 	}
- 	
- 	div.infoSup p{
- 		font-size: 0.75em;
- 	}
-  
-  }
- 
-/*************** MEDIA 945px - 770px **************/ 
-@media only screen and (min-width: 770px) and (max-width: 945px) {
-	nav li{
-		margin-right: 2em;
-		
-	}
-	
-	#skills{
-		padding: 0 0 0.5em 1em;
-	}
-	
-	#skills li{
-		height: 50px;
-	}
-	
-	.page-id-40 article{
-		width: 750px;
-	}
-	
-	#post-40 ol{
-		padding-left: 1em;
-	}
 }

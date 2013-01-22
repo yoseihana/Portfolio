@@ -14,9 +14,9 @@
    if(isset($_POST['submit'])){
     	if(mail($a, $sujet, $body, $de)){
     		echo'<p>Thanks for you message, it has been sent.</p>';
-    		header('Location: form-success.php');
+    		//header('Location: form-success.php');
     	}else{
-    		echo '<p>Sorry, something went wrong, please try again.</p>';
+    		echo '<p>Huston, we have a problem, something went wrong, please try again.</p>';
     		//redirect('abdesign.olympe.in/wpblog');
     	}
     }

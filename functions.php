@@ -21,10 +21,10 @@ if(! function_exists('create_post_type')){
 		register_post_type('works', 
 			array(
 				'labels'=>array(
-							'name' => __('Works'),
-							'singular_name' => __('Works'),
+							'name' => __('Travaux'),
+							'singular_name' => __('Travaux'),
 						),
-				'supports' => array('title', 'editor', 'thumbnail', 'post-formats', 'custom-fields'),
+				'supports' => array('title', 'editor', 'thumbnail', 'page-attributes', 'custom-fields'),
 				'public' => true,
 				'taxonomies'=> array('techniques'),
 				'has_archive' => true,
@@ -39,7 +39,7 @@ if(! function_exists('create_post_type')){
 							'name' => __('Profil'),
 							'singular_name' => __('Profil'),
 						),
-				'supports' => array('title', 'editor', 'thumbnail', 'post-formats', 'page-attributes', 'custom-fields'),
+				'supports' => array('title', 'editor', 'thumbnail', 'page-attributes', 'custom-fields'),
 				'public' => true,
 				'has_archive' => true,
 				'hierarchical'=>true,
@@ -50,8 +50,8 @@ if(! function_exists('create_post_type')){
 		register_post_type('skills', 
 			array(
 				'labels'=>array(
-							'name' => __('Skills'),
-							'singular_name' => __('Skills'),
+							'name' => __('Compétences'),
+							'singular_name' => __('Compétences'),
 						),
 				'supports' => array('title', 'editor', 'custom-fields', 'page-attributes'),
 				'public' => true,
@@ -78,8 +78,8 @@ if(! function_exists('create_post_type')){
 		register_post_type('education', 
 			array(
 				'labels'=>array(
-							'name' => __('Education'),
-							'singular_name' => __('Education'),
+							'name' => __('Educations'),
+							'singular_name' => __('Educations'),
 						),
 				'supports' => array('title', 'editor', 'custom-fields', 'page-attributes'),
 				'public' => true,
@@ -89,13 +89,13 @@ if(! function_exists('create_post_type')){
 			)
 		);
 		
-		register_post_type('contact', 
+		register_post_type('informations_contact', 
 			array(
 				'labels'=>array(
-							'name' => __('Contact'),
-							'singular_name' => __('Contact'),
+							'name' => __('Informations contact'),
+							'singular_name' => __('Informations contact'),
 						),
-				'supports' => array('title', 'editor'),
+				'supports' => array('title', 'editor', 'page-attributes'),
 				'public' => true,
 				'has_archive' => true,
 				'hierarchical'=>true,

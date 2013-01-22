@@ -3,11 +3,14 @@
 @paperR:url("../img/paperR.jpg");
 @paperB:url("../img/paperB.jpg");
 @helvetica: Helvetica, Arial, sans-serif;
-@helveticaN:'Helvetica Neue', 'Arial', sans-serif;
+@Kite:'Kite One', sans-serif;
 @colorB: black;
 @colorW: white;
-@Raleway:'Raleway Dots', cursive;
 @Krona: 'Krona One',sans-serif;
+@colorRed: #BC0D08;
+@colorYellow: #E0CA45;
+@colorBlue: #1959B0;
+@colorGreen: #178B1E;
 
 @import "grid.less";
 
@@ -52,21 +55,21 @@ p#logo a{
 }
 
 #main article,  #sidebar1, .sidebar{
-	background-color: #F4F0EF;
+	background-color: @colorW;
 	padding: 0.5em;
 	margin-bottom: 1em;
 }
 
-article>div, #categories-2, #archives-2, .page .entry-content, .education, .experience, .profile, .infoSup{
+article>div, #categories-2, #archives-3, .page .entry-content, .education, .experience, .profile, .infoSup{
 	border: 1px dashed #A7A7A7;
 	padding: 1em;
 }
 
-#categories-2, #archives-2, .education, .experience, profile, .infoSup{
+#categories-2, #archives-3, .education, .experience, profile, .infoSup{
 	position:relative
 }
 
-#categories-2 ul, #archives-2 ul, .education ol, .experience ol, .infoSup ul{
+#categories-2 ul, #archives-3 ul, .education ol, .experience ol, .infoSup ul{
 	margin-top: 2.5em;
 }
 
@@ -91,11 +94,11 @@ a{
 
 a:hover{
 	text-decoration: underline;
-	color: #178B1E;
+	color: @colorGreen;
 }
 
 .page-id-11 article a:hover{
-	color: #E0CA45;
+	color: @colorYellow;
 }
 
 .right{
@@ -105,8 +108,8 @@ a:hover{
 }
 
 h2 {
-  font-size: 1.5em;
-  font-family: @Raleway;
+  font-size: 1em;
+  font-family: @Krona;
   padding: 0.5em;
   color: black;
 
@@ -145,34 +148,37 @@ nav a {
   width:  100px;
   padding: 0.25em;
 }
-	.page-item-45 a{
+	.page-item-45 a, #menu-item-47 a{
 		color: #0B9E3A;
 	}
-	.page-item-40 a{
+	.page-item-40 a, #menu-item-49 a{
 		color: #2353BA;
 	}
-	.page-item-42 a{
+	.page-item-42 a, #menu-item-48 a{
 		color: #C4212A;
 	}
 
 
 nav a:hover{
 	background-image: @paperY;
-	color:  @colorW;
+	color:  white;
 	padding: 0.25em;
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
 	border-radius: 2px;
 	text-decoration: none;
 }
-	li.page-item-45 a:hover, nav a:active{
+	li.page-item-45 a:hover, #menu-item-47 a:hover{
 		background-image: @paperG;
+		color:  white;
 	}
-	li.page-item-40 a:hover, nav a:active{
+	li.page-item-40 a:hover, #menu-item-49 a:hover{
 		background-image: @paperB;
+		color:  white;
 	}
-	li.page-item-42 a:hover, nav a:active{
+	li.page-item-42 a:hover, #menu-item-48 a:hover{
 		background-image: @paperR;
+		color:  white;
 	}
 
 section#content {
@@ -181,15 +187,18 @@ section#content {
 
 article h1, .archive h1{
   font-family: @Krona;
-  padding:  15px;
   background-image: url("../img/titlePattern.jpeg");
   color: @colorW;
 }
 
-.archive h1{
+.archive header h1{
 	padding: 10px;
 }
-.page h1{
+
+.archive article h1{
+ 	font-size: 1em;
+ }
+.page h1, .blog h1, .archive article h1{
 	padding:  18px;
 	color:  @colorW;
 }
@@ -204,11 +213,10 @@ article h1, .archive h1{
 	}
 
 article p {
-  text-align: justify;
-  margin: 0 2em 0 1em;
-  font-family: @helveticaN;
+  margin: 0 1em 0 1em;
+  font-family: @Kite;
   font-weight: lighter;
-  line-height: 1.25em;
+  line-height: 1.5em;
 }
 
 .image{
@@ -222,7 +230,7 @@ article p {
 }
 
 li {
-  font-family: @helveticaN;
+  font-family: @Kite;
   color:  black;
   list-style-image: url("../img/boutton.png");
 }
@@ -240,15 +248,19 @@ li p+p {
 	text-align: center;
 }
 
-#skills li{
+ol{
+	padding: 0;
+}
+
+.skills li{
 	list-style: none;
 	height: 25px;
 	margin: 0.5em 0 0.5em 0;
 }
 
-#skills li>p{
+.skills li>p{
 	float: left;
-	width:  100px;
+	width:  125px;
 }
 
 .level1, .level2, .level3, .level4{
@@ -275,31 +287,63 @@ li p+p {
 		background-position: 0 -75px;
 	}
 	
+article.education li, article.experience li{
+	margin: 1em 0 1em 1.5em;
+}
+
+.titleSidebar{
+	margin-bottom: 0.25em;
+	font-weight: bold
+}
 /*  Page blog */
-nav.page-navigation{
+.wp-prev-next{
 	background-image: none;
 	width: 570px;
 	position: relative;
 }
 
-.page-navigation li{
+.wp-prev-next li{
 	height: 15px;
 	margin: 1em;
 }
 
-.page-navigation a, .page-navigation li{
+.wp-prev-next a, .wp-prev-next li{
 	color: white;
 	font-size: 1em;
 	font-family:@Krona;
 }
 
-li.bpn-current{
-	background-image: @paperG;
+.wp-prev-next li a:hover{
+	color: @colorBlue;
+	background-image: none;
 }
 
-/* Page template */
+.tags{
+	margin: 1em 1em;
+	color: @colorGreen
+}
+
+.byline{
+	color:@colorGreen;
+}
+
+.blog article section, .archive article section{
+	padding: 1em;
+	border: 1px dashed #A7A7A7;
+}
+
+.blog .entry-content, .archive .entry-content{
+	border: none;
+}
+
+#archives-3 li, #categories-2 li{
+	margin-bottom: 0.5em;
+}
+
+/* Page portfolio */
 .page-id-40{
 	color: black;
+	background-image: @paperB;
 }
 
 .page-id-40 #main article{
@@ -325,8 +369,16 @@ li.bpn-current{
 	display: inline-block;
 }
 
-.page-id-40 ol p+p{
+#page-40 ol p+p{
 	margin: 0.5em 0;
+}
+
+#post-40 a:hover{
+	color: @colorBlue; 
+}
+
+.page-id-40 h2{
+	margin: 0.5em;
 }
 
 /* Page contact */
@@ -336,7 +388,7 @@ li.bpn-current{
 
 
 .page-id-42 .sidebar a:hover{
-	color: #BC0D08;
+	color: @colorRed;
 }
 
 .page-id-42 #content{
@@ -344,7 +396,7 @@ li.bpn-current{
 }
 
 .infoContact{
-	margin-bottom: -1em;
+	margin-top: 1em;
 	font-weight: bold;
 }
 
@@ -352,20 +404,35 @@ form {
   margin-bottom: 1em;
 }
 
+form p{
+	margin-top: 1em;
+}
+
 input, textarea {
   width: 439px;
   background: 1px solid #dedede;
   padding: 10px;
   margin-top: 3px;
+  margin-bottom: 1em;
   font-size: 0.9em;
   color: #3a3a3a;
-  border-radius:2px;
-  -moz-border-radius:2px;
-  -webkit-border-radius:2px;
+  border-radius:5px;
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
 }
 
 textarea{
 	height: 213px;
+}
+
+[type="submit"]{
+	width: 460px;
+	color: @colorRed;
+	font-family: @Kite;
+}
+[type="submit"]:hover{
+	background-color: @colorRed;
+	color: @colorW;
 }
 
 input:focus, textarea:focus {
@@ -384,170 +451,142 @@ input:focus, textarea:focus {
 	    opacity:0.7;
 	}
 
-label{
-  font-family: @helvetica;
-  color: black;
-  display: block
-  letter-spacing: 20px;
-  margin-top: 25px;
-  font-weight:bold;
-}
 
 /* FOOTER */
 footer {
   width: 950px;
   display: inline-block;
-  text-align: center;
+  text-align:center;
 }
 
+/* Page Erreur */
+.error404 #content{
+  width: 100%;
+}
+
+.error404 #main{
+  float: none;
+  width: 100%;
+}
+.error404 article{
+  border: 1px dashed #A7A7A7;
+}
+
+.error404{
+  background-color: blue;
+  background-image: none;
+}
+
+/*************** MEDIA 945px - 770px **************/
+@media only screen and (min-width: 770px) and (max-width: 950px) {
+
+  nav, nav ul{
+    width: 100%
+  }
+
+  nav li{
+    margin: 0.2% 5% 0 5%;
+  }
+
+  article p{
+    margin: 0em;
+  }
+
+  #content{
+    margin: 100px 25px 0 25px;
+  }
+  .page-id-42 #content{
+    width: 100%;
+  }
+
+  .skills li{
+    height: 50px;
+  }
+  .skills li >p{
+    float: none;
+  }
+
+  .level1, .level2, .level3, .level4{
+    margin-left: 1em;
+  }
+
+  .page-id-40 #content{
+    margin: 100px 15px 0px 15px;
+  }
+
+  input, textarea{
+    width: 95%;
+  }
+
+  input[type="submit"]{
+    width: 100%;
+  }
+}
+
+/*************** MEDIA 482px - 768px **************/
+@media only screen and (min-width: 483px) and (max-width: 768px) {
+  body.home{
+    background-color: red;
+    background-image: none;
+  }
+
+  nav{
+    width: 100%;
+    background-image:none;
+    position: relative;
+  }
+
+  ul{
+    padding: 0px;
+  }
+
+  nav li{
+    float: none;
+    background-image: url("../img/navPattern.jpg");
+    margin: 0em;
+    height: 50px;
+  }
+
+  nav li:last-child{
+    height: 55px;
+  }
+
+  nav a{
+    width: 100%;
+  }
+
+  #content{
+    margin-top: 0px;
+  }
+
+  #main, .right{
+    float: none;
+    width: 100%;
+    margin: 0px;
+  }
+
+  footer{
+    width: 100%;
+  }
+
+  .skills li{
+    height: 50px;
+  }
+  .skills li >p{
+    float: none;
+  }
+
+  .level1, .level2, .level3, .level4{
+    margin-left: 1em;
+  }
+
+}
 
 /*************** MEDIA 481px **************/
 
 @media only screen and (max-width: 481px){
-  nav{
-  	width: 100%;
-  	position: relative;
-  	background-image: none;
+  body.home{
+  /*background-color: yellow;
+  background-image: none;*/
   }
-	nav ul{
-		padding:0;
-	}
-	
-	nav li{
-		float: none;
-		background-image: url("../img/navPattern.jpg");
-		height: 25px;
-		padding: 1em;
-		margin:0;
-		
-	}
-	
-	nav a{
-		text-align: center;
-		display: inline-block;
-		width: 100%;
-	}
-	
-	#skills li{
-		height: 50px;
-	}
-	
-	#content{
-		margin-top: 0;
-	}
-	
-	#main{
-		float: none;
-		width: 100%;
-		margin-right: 0;
-	}
-	
-	.right{
-		float: none;
-		width: 100%;
-		margin-right: 0;
-	}
-	
-	body.page-id-40 article{
-		width: 100%;
-	}
-	
-	body.page-id-40 #main li{
-		float: none;
-		width: 100%;
-		margin: 0;
-	}
-}
-/*************** MEDIA 482px - 768px **************/
-  @media only screen and (min-width: 482px) and (max-width: 768px) {
- 	nav{
- 		width: 100%;
- 		position: relative;
- 	}
- 	nav ul{
- 		padding:0;
- 	}
- 	
- 	nav li{
- 		float: none;
- 		background-image: url("../img/navPattern.jpg");
- 		height: 25px;
- 		padding: 1em;
- 		margin:0;
- 		width: 100%;
- 	}
- 	
- 	nav a{
- 		text-align: center;
- 		display: inline-block;
- 		width: 100%;
- 	}
- 	
- 	#content{
- 		margin-top: 0;
- 	}
- 	
- 	article > div, #categories-2, #archives-2, .page .entry-content, .education, .experience, .profile, .infoSup{
- 		padding:0.25em 0;
- 	}
- 	
- 	#categories-2 ul, #archives-2 ul, .education ol, .experience ol, .infoSup ul{
- 		margin-left: 0;
- 	}
- 	
- 	#skills{
- 		padding: 0 0 0.5em 1em;
- 	}
- 	
- 	#skills li{
- 		height: 50px;
- 	}
- 	
- 	.level1, .level2, .level3, .level4{
- 		background-image: url('../img/progressSmall.png');
- 	}
- 	
- 	img{
-		width: 75%; 
-		height: 75%;	
- 	}
- 	
- 	body.page-id-40 article{
- 		width: 100%
- 	}
-
- 	body.page-id-40 #main li{
- 		float: none;
- 		width: 100%;
- 		margin: 0;
- 	}
- 	
- 	div.infoSup p{
- 		font-size: 0.75em;
- 	}
-  
-  }
- 
-/*************** MEDIA 945px - 770px **************/ 
-@media only screen and (min-width: 770px) and (max-width: 945px) {
-	nav li{
-		margin-right: 2em;
-		
-	}
-	
-	#skills{
-		padding: 0 0 0.5em 1em;
-	}
-	
-	#skills li{
-		height: 50px;
-	}
-	
-	.page-id-40 article{
-		width: 750px;
-	}
-	
-	#post-40 ol{
-		padding-left: 1em;
-	}
 }

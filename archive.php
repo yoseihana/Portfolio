@@ -1,71 +1,75 @@
 <?php get_header(); ?>
-			
 			<div id="content">
-			
-				<div id="inner-content" class="wrap clearfix">
 				
 				    <div id="main" class="eightcol first clearfix" role="main">
 					    <?php if (is_category()) { ?>
+						    <header>
 						    <h1 class="archive-title h2">
-							    <span><?php _e("Categorized:", "bonestheme"); ?></span> <?php single_cat_title(); ?>
+							   <?php single_cat_title(); ?>
 					    	</h1>
-					    
+					    	</header>
 					    <?php } elseif (is_tag()) { ?> 
+						    <header>
 						    <h1 class="archive-title h2">
-							    <span><?php _e("Tagged:", "bonestheme"); ?></span> <?php single_tag_title(); ?>
+							    <?php single_tag_title(); ?>
 						    </h1>
-					    
+					    	</header>
 					    <?php } elseif (is_author()) { 
 					    	global $post;
 					    	$author_id = $post->post_author;
-					    ?>
+					    ?>	
+					    	<header>
 						    <h1 class="archive-title h2">
-
-						    	<span><?php _e("By:", "bonestheme"); ?></span> <?php echo get_the_author_meta('display_name', $author_id); ?>
-
+						    	Ecrit par <?php echo get_the_author_meta('display_name', $author_id); ?>
 						    </h1>
+						    </header>
 					    <?php } elseif (is_day()) { ?>
+					    <header>
 						    <h1 class="archive-title h2">
-	    						<span><?php _e("Archives:", "bonestheme"); ?></span> <?php the_time('l, F j, Y'); ?>
+	    						<?php the_time('l, F j, Y'); ?>
 						    </h1>
-		
+						</header>
 		    			<?php } elseif (is_month()) { ?>
+			    		    <header>
 			    		    <h1 class="archive-title h2">
-				    	    	<span><?php _e("Archives:", "bonestheme"); ?></span> <?php the_time('F Y'); ?>
+				    	    	<?php the_time('F Y'); ?>
 					        </h1>
-					
+							</header>
 					    <?php } elseif (is_year()) { ?>
+					        <header>
 					        <h1 class="archive-title h2">
-					    	    <span><?php _e("Archives:", "bonestheme"); ?></span> <?php the_time('Y'); ?>
+					    	    <?php the_time('Y'); ?>
 					        </h1>
+					        </header>
 					    <?php } ?>
 
 					    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 					
 					    <article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article">
 						
-						    <header class="article-header">
+						    <section>
+							    <header class="article-header">
+								
+								   <!-- <h3 class="h2"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>-->
+								   <h1><?php the_title(); ?></h1>
+								
+								    <p class="byline vcard"><?php _e("Posted", "bonestheme"); ?> <time class="updated" datetime="<?php echo the_time('Y-m-j'); ?>" pubdate><?php the_time('F jS, Y'); ?></time> <?php _e("by", "bonestheme"); ?> <span class="author"><?php the_author_posts_link(); ?></span> <span class="amp">&</span> <?php _e("filed under", "bonestheme"); ?> <?php the_category(', '); ?>.</p>
 							
-							   <!-- <h3 class="h2"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>-->
-							   <h2 class="h2"><?php the_title(); ?></h2>
+							    </header> <!-- end article header -->
+						
+							    <section class="entry-content clearfix">
 							
-							    <p class="byline vcard"><?php _e("Posted", "bonestheme"); ?> <time class="updated" datetime="<?php echo the_time('Y-m-j'); ?>" pubdate><?php the_time('F jS, Y'); ?></time> <?php _e("by", "bonestheme"); ?> <span class="author"><?php the_author_posts_link(); ?></span> <span class="amp">&</span> <?php _e("filed under", "bonestheme"); ?> <?php the_category(', '); ?>.</p>
-						
-						    </header> <!-- end article header -->
-					
-						    <section class="entry-content clearfix">
-						
-							    <!--<?php the_post_thumbnail( 'bones-thumb-300' ); ?>-->
-							    <?php the_post_thumbnail( 'medium' ); ?>
-						
-							    <?php the_excerpt(); ?>
-					
-						    </section> <!-- end article section -->
-						
-						    <footer class="article-footer">
+								    <!--<?php the_post_thumbnail( 'bones-thumb-300' ); ?>-->
+								    <?php the_post_thumbnail( 'medium' ); ?>
 							
-						    </footer> <!-- end article footer -->
-					
+								    <?php the_content(); ?>
+						
+							    </section> <!-- end article section -->
+							
+							    <footer class="article-footer">
+									<p class="tags"><?php the_tags('<span class="tags-title">Tags:</span> ', ', ', ''); ?></p>
+							    </footer> <!-- end article footer -->
+							</section>
 					    </article> <!-- end article -->
 					
 					    <?php endwhile; ?>	
@@ -103,8 +107,6 @@
 	    			    <?php get_sidebar('primary'); ?>
 	    			    <?php get_sidebar('secondary'); ?>
 	    			</div>
-                
-                </div> <!-- end #inner-content -->
                 
 			</div> <!-- end #content -->
 

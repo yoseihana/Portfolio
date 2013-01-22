@@ -18,14 +18,14 @@
 		<meta name="MobileOptimized" content="320">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		
-		<link rel="stylesheet" type="text/css" href="http://abdesign.olympe.in/wpblog/wp-content/themes/wpTemplate/library/css/style.css" media="screen" />
-		
+		<link rel="stylesheet" type="text/css" href="/wp-content/themes/wpTemplate/library/css/style.css" media="screen" />
 		<!-- icons & favicons (for more: http://themble.com/support/adding-icons-favicons/) -->
 		<!--<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico">-->
 				
   		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 		<link href='http://fonts.googleapis.com/css?family=Krona+One' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Raleway+Dots' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Kite+One' rel='stylesheet' type='text/css'>
+			<script src="/wp-content/themes/wpTemplate/library/js/less.js" type="text/javascript"></script>
 		<!-- wordpress head functions -->
 		<?php wp_head(); ?>
 		<!-- end of wordpress head -->
@@ -36,24 +36,15 @@
 	</head>
 	
 	<body <?php body_class(); ?>>
-	
-		<div id="container">
-			
+    <div class="container">
 			<header class="header" role="banner">
-			
-				<div id="inner-header" class="wrap clearfix">
-					
 					<!-- to use a image just replace the bloginfo('name') with your img src and remove the surrounding <p> -->
 					<p id="logo" class="h1"><a href="<?php echo home_url(); ?>" rel="nofollow"><?php bloginfo('name'); ?></a></p>
 					
-					<!-- if you'd like to use the site description you can un-comment it below -->
 					<?php // bloginfo('description'); ?>
-					
-					
+				
 					<nav role="navigation">
 						<?php wp_nav_menu(array('menu'=>'Header Menu')); ?>
 					</nav>
-				
-				</div> <!-- end #inner-header -->
 			
 			</header> <!-- end header -->

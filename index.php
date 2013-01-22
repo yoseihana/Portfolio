@@ -2,35 +2,31 @@
 			
 			<div id="content">
 			
-				<div id="inner-content" class="wrap clearfix">
-			
-				    <div id="main" class="eightcol first clearfix" role="main">
-
+				    <section id="main" class="eightcol first clearfix" role="main">
+				    
 					    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 					
 					    <article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article">
-							<div>
-						    <header class="article-header">
+							<section>
+							    <header class="article-header">
+								   <!-- <h1 class="h2"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>-->
+								   <h1 class="h2"><?php the_title(); ?></h1>
+								   <p class="byline vcard">Posté le <time class="updated" datetime="<?php echo the_time('Y-m-j'); ?>" pubdate><?php the_time(get_option('date_format')); ?></time> par <span class="author"><?php the_author_posts_link(); ?></span> <span class="amp">&</span> <?php _e('filed under', 'bonestheme'); ?> <?php the_category(', '); ?>.</p>
 							
-							   <!-- <h1 class="h2"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>-->
-							   <h1 class="h2"><?php the_title(); ?></h1>
+							    </header> <!-- end article header -->
+						
+							    <section class="entry-content clearfix">
+								    <figure class="image"><?php the_post_thumbnail('medium'); ?></figure>
+								    <div><?php the_content(); ?></div>
+							    </section> <!-- end article section -->
 							
-							    <p class="byline vcard"><?php _e('Posted', 'bonestheme'); ?> <time class="updated" datetime="<?php echo the_time('Y-m-j'); ?>" pubdate><?php the_time(get_option('date_format')); ?></time> <?php _e('by', 'bonestheme'); ?> <span class="author"><?php the_author_posts_link(); ?></span> <span class="amp">&</span> <?php _e('filed under', 'bonestheme'); ?> <?php the_category(', '); ?>.</p>
-						
-						    </header> <!-- end article header -->
-					
-						    <section class="entry-content clearfix">
-							    <div class="image"><?php the_post_thumbnail('medium'); ?></div>
-							    <div><?php the_content(); ?></div>
-						    </section> <!-- end article section -->
-						
-						    <footer class="article-footer">
-
-    							<p class="tags"><?php the_tags('<span class="tags-title">Tags:</span> ', ', ', ''); ?></p>
-
-						    </footer> <!-- end article footer -->
-						    </div>
-						    <?php // comments_template(); // uncomment if you want to use them ?>
+							    <footer class="article-footer">
+	
+	    							<p class="tags"><?php the_tags('<span class="tags-title">Tags:</span> ', ', ', ''); ?></p>
+	
+							    </footer> <!-- end article footer -->
+						    </section>
+						  <!--  <?php // comments_template(); // uncomment if you want to use them ?> -->
 					
 					    </article> <!-- end article -->
 					
@@ -63,14 +59,12 @@
 					
 					    <?php endif; ?>
 			
-				    </div> <!-- end #main -->
+				    </section> <!-- end #main -->
     
-				    <div class="right">
+				    <section class="right">
 					    <?php get_sidebar('primary'); ?>
 					    <?php get_sidebar('secondary'); ?>
-				    </div>
-				    
-				</div> <!-- end #inner-content -->
+				    </section>
     
 			</div> <!-- end #content -->
 
