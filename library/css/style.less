@@ -88,7 +88,7 @@ p#logo a{
 	margin-bottom: 1em;
 }
 
-article>div, #categories-2, #archives-3, .page .entry-content, .education, .experience, .profile, .infoSup{
+article>div, #categories-2, #archives-3, .page .entry-content, .education, .experience, .profile, .infoSup, .error404 .entry-content{
 	border: 1px dashed #A7A7A7;
 	padding: 1em;
 }
@@ -217,7 +217,7 @@ section#content {
   margin-bottom: 2em;
 }
 
-article header, .archive header{
+article header, .archive #main header{
   font-family: @Caviar;
   background-image: url("../img/titlePattern.jpeg");
   color: @colorW;
@@ -229,14 +229,14 @@ aside header{
   height: 100%;
 }
 
-.archive header h1{
-	padding: 10px;
+.archive #main h1:first-letter{
+  text-transform: capitalize;
 }
 
 .archive article h1{
  	font-size: 1em;
  }
-.page h1, .blog h1, .archive article h1{
+.page h1, .blog h1, .archive article h1, .error404 h1, .archive h1{
 	color:  @colorW;
     font-size: 2em;
     margin: 0.45em;
@@ -392,7 +392,6 @@ article.education li, article.experience li{
 
 .posted{
   background-image: none;
-  amrgin-top: 0;
   height: 100%;
 }
 
@@ -402,7 +401,7 @@ article.education li, article.experience li{
   height: 100%;
 }
 
-.blog .entry-content li{
+.blog .entry-content li, .archive .entry-content li{
   list-style-image: none;
   margin-top: 1em;
   list-style-type:disc;
@@ -416,7 +415,7 @@ article.education li, article.experience li{
   margin-left: 4em;
 }
 
-.blog .entry-content p{
+.blog .entry-content p, .archive .entry-content p{
   margin-top: 1em;
 }
 
@@ -585,31 +584,24 @@ footer {
 }
 
 /* Page Erreur */
-.error404 #content{
-  width: 100%;
+.error404 figure, .error404 #main{
+  .column(12);
 }
 
-.error404 #main{
-  float: none;
-  width: 100%;
-}
-.error404 article{
-  border: 1px dashed #A7A7A7;
+.error404 img{
+  .column(4);
+  .push(4);
 }
 
-.error404{
-  background-color: blue;
+/* Page catégorie */
+.archive #main .article-header{
   background-image: none;
 }
+
 
 /*************** MEDIA 945px - 770px **************/
 
 @media only screen and (max-width: 950px) and (min-width: 770px) {
-
-  .home, body, .page-id-40, .page-id-42{
-    background-image: none;
-    background-color: red;
-  }
 
   article p{
     margin: 0em;
@@ -641,15 +633,15 @@ footer {
 /*************** MEDIA 482px - 768px **************/
 @media only screen and (min-width: 483px) and (max-width: 768px){
 
-  .home, body, .page-id-40, .page-id-42{
-    background-image: none;
-    background-color: blue;
+  nav{
+    height: 100%;
+    background-image:none;
   }
 
-  nav{
+  header.header{
     width: 100%;
-    background-image:none;
-    position: relative;
+    float: none;
+    margin: 0;
   }
 
   ul{
@@ -657,10 +649,10 @@ footer {
   }
 
   nav li{
-    float: none;
+    width: 100%;
     background-image: url("../img/navPattern.jpg");
-    margin: 0em;
     height: 50px;
+    margin: 0;
   }
 
   nav li:last-child{
@@ -671,14 +663,16 @@ footer {
     width: 100%;
   }
 
+  nav a:hover{
+    padding: 0.25em 0;
+  }
+
   #content{
     margin-top: 0px;
   }
 
   #main, .right{
-    float: none;
-    width: 100%;
-    margin: 0px;
+    .column(12);
   }
 
   footer{
@@ -686,14 +680,48 @@ footer {
   }
 
   .skills li{
-    height: 50px;
-  }
-  .skills li >p{
-    float: none;
+    height: 25px;
   }
 
-  .level1, .level2, .level3, .level4{
+  .level1, .level2, .level3, .level4, .level5{
     margin-left: 1em;
+    background-image: url('../img/progressSmall.png');
+    height: 17px;
+    .push(4);
+    .column(7);
+  }
+
+  .level2{
+    background-position: 0 -20px;
+  }
+
+  .level3{
+    background-position: 0 -35px;
+  }
+
+  .level4{
+    background-position: 0 -55px;
+  }
+
+  .level5{
+    background-position: 0 -75px;
+  }
+
+  .wp-prev-next li{
+    background-image: none;
+  }
+
+  .page-id-40 #main li{
+    .column(12);
+    height: 100%;
+  }
+
+  .posted .byline{
+    margin-bottom: 0.5em;
+  }
+
+  .archive #main .article-header{
+    height: 75px;
   }
 
 }
@@ -701,8 +729,105 @@ footer {
 /*************** MEDIA 481px **************/
 
 @media only screen and (max-width: 481px){
-  .home, body, .page-id-40, .page-id-42{
+
+  p#logo{
+    .column(10);
+    .push(2);
+  }
+
+  nav{
+    height: 100%;
+    background-image:none;
+  }
+
+  header.header{
+    width: 100%;
+    float: none;
+    margin: 0;
+  }
+
+  ul{
+    padding: 0px;
+  }
+
+  nav li{
+    width: 100%;
+    background-image: url("../img/navPattern.jpg");
+    height: 50px;
+    margin: 0;
+  }
+
+  nav li:last-child{
+    height: 55px;
+  }
+
+  nav a{
+    width: 100%;
+  }
+
+  nav a:hover{
+    padding: 0.25em 0;
+  }
+
+  #content{
+    margin-top: 0px;
+  }
+
+  #main, .right{
+    .column(12);
+  }
+
+  footer{
+    width: 100%;
+  }
+
+  .skills li p{
+    .column(12);
+    margin-bottom: 0.5em;
+  }
+
+  .level1, .level2, .level3, .level4, .level5{
+    background-image: url('../img/progressSmall.png');
+    height: 17px;
+    .column(12);
+    margin-bottom: 1em;
+  }
+
+  .level2{
+    background-position: 0 -20px;
+  }
+
+  .level3{
+    background-position: 0 -35px;
+  }
+
+  .level4{
+    background-position: 0 -55px;
+  }
+
+  .level5{
+    background-position: 0 -75px;
+  }
+
+  .wp-prev-next li{
     background-image: none;
-    background-color: green;
+  }
+
+  .page-id-40 #main li{
+    .column(12);
+    height: 100%;
+  }
+
+  .posted .byline{
+    margin-bottom: 0.5em;
+  }
+
+  .copyright{
+    line-height: 1.25em;
+    padding-top: 0.5em;
+  }
+
+  .archive #main .article-header{
+    height: 75px;
   }
 }
