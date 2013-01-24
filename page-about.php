@@ -8,7 +8,7 @@
                 <header>
                     <h1><?php the_title(); ?></h1>
                 </header>
-                <p><?php the_content(); ?></p>
+                <?php the_content(); ?>
             </section>
             <!-- end article section -->
         </article>
@@ -21,7 +21,7 @@
                 <h2><a href="#web">Web</a></h2>
                 <ol>
                     <?php
-                    $arg = array('post_type' => 'Skills', 'posts_per_page' => 25, 'order' => 'ASC');
+                    $arg = array('post_type' => 'Skills', 'posts_per_page' => 50, 'order' => 'ASC');
                     $loop = new WP_Query($arg);
                     while ($loop->have_posts()) : $loop->the_post();?>
                         <?php $i = get_post_custom_values('Catégorie');
@@ -39,7 +39,7 @@
                 <h2><a href="#cms">CMS</a></h2>
                 <ol>
                     <?php
-                    $arg = array('post_type' => 'Skills', 'posts_per_page' => 25, 'order' => 'ASC');
+                    $arg = array('post_type' => 'Skills', 'posts_per_page' => 50, 'order' => 'ASC');
                     $loop = new WP_Query($arg);
                     while ($loop->have_posts()) : $loop->the_post();?>
                         <?php $i = get_post_custom_values('Catégorie');
@@ -57,7 +57,7 @@
                 <h2><a href="#db">Base de données</a></h2>
                 <ol>
                     <?php
-                    $arg = array('post_type' => 'Skills', 'posts_per_page' => 25, 'order' => 'ASC');
+                    $arg = array('post_type' => 'Skills', 'posts_per_page' => 50, 'order' => 'ASC');
                     $loop = new WP_Query($arg);
                     while ($loop->have_posts()) : $loop->the_post();?>
                         <?php $i = get_post_custom_values('Catégorie');
@@ -75,7 +75,7 @@
                 <h2><a href="#multimedia">Multimédia</a></h2>
                 <ol>
                     <?php
-                    $arg = array('post_type' => 'Skills', 'posts_per_page' => 25, 'order' => 'ASC');
+                    $arg = array('post_type' => 'Skills', 'posts_per_page' => 50, 'order' => 'ASC');
                     $loop = new WP_Query($arg);
                     while ($loop->have_posts()) : $loop->the_post();?>
                         <?php $i = get_post_custom_values('Catégorie');
@@ -93,7 +93,7 @@
                 <h2><a href="#management">Management</a></h2>
                 <ol>
                     <?php
-                    $arg = array('post_type' => 'Skills', 'posts_per_page' => 25, 'order' => 'ASC');
+                    $arg = array('post_type' => 'Skills', 'posts_per_page' => 50, 'order' => 'ASC');
                     $loop = new WP_Query($arg);
                     while ($loop->have_posts()) : $loop->the_post();?>
                         <?php $i = get_post_custom_values('Catégorie');
@@ -108,6 +108,44 @@
                             <?php endif; ?>
                         <?php endwhile; ?>
                 </ol>
+                <h2><a href="#langue">Langues</a></h2>
+                <ol>
+                    <?php
+                    $arg = array('post_type' => 'Skills', 'posts_per_page' => 50, 'order' => 'ASC');
+                    $loop = new WP_Query($arg);
+                    while ($loop->have_posts()) : $loop->the_post();?>
+                        <?php $i = get_post_custom_values('Catégorie');
+                        if ($i[0] == 'Langue'): ?>
+                            <li id="langues">
+                                <p><?php the_title(); ?></p>
+
+                                <div class='<?php $k = get_post_custom_values('level'); echo 'level' . $k[0]; ?>'>
+                                    <?php the_content(); ?>
+                                </div>
+                            </li>
+                            <?php endif; ?>
+                        <?php endwhile; ?>
+                </ol>
+                <h2><a href="#plus">Et encore plus de compétences!</a></h2>
+
+                <ol>
+                    <?php
+                    $arg = array('post_type' => 'Skills', 'posts_per_page' => 50, 'order' => 'ASC');
+                    $loop = new WP_Query($arg);
+                    while ($loop->have_posts()) : $loop->the_post();?>
+                        <?php $i = get_post_custom_values('Catégorie');
+                        if ($i[0] == 'Plus'): ?>
+                            <li id="plus">
+                                <p><?php the_title(); ?></p>
+
+                                <div class='<?php $k = get_post_custom_values('level'); echo 'level' . $k[0]; ?>'>
+                                    <?php the_content(); ?>
+                                </div>
+                            </li>
+                            <?php endif; ?>
+                        <?php endwhile; ?>
+                </ol>
+                <p>(Les atouts idéales d'une stagiaire!)</p>
             </section>
             <!-- end article section -->
         </article> <!-- end article -->
@@ -132,9 +170,6 @@
     <aside class="right">
         <section class="sidebar">
             <div class="profile">
-                <!--<header>
-                    <h3>Profile</h3>
-                </header>-->
                 <?php
                 $arg = array('post_type' => 'profile');
                 $loop = new WP_Query($arg);

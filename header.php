@@ -17,8 +17,14 @@
 		<meta name="HandheldFriendly" content="True">
 		<meta name="MobileOptimized" content="320">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
 		
 		<link rel="stylesheet" type="text/css" href="/wp-content/themes/wpTemplate/library/css/style.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="/wp-content/themes/wpTemplate/library/css/fontello-codes.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="/wp-content/themes/wpTemplate/library/css/fontello-embedded.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="/wp-content/themes/wpTemplate/library/css/fontello-ie7-codes.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="/wp-content/themes/wpTemplate/library/css/fontello-ie7.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="/wp-content/themes/wpTemplate/library/css/fontello.css" media="screen" />
 		<!-- icons & favicons (for more: http://themble.com/support/adding-icons-favicons/) -->
 		<!--<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico">-->
 				

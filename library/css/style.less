@@ -8,8 +8,6 @@ Theme Name: wpTemplate
 @paperY: url("../img/paperY.jpg");
 @paperR:url("../img/paperR.jpg");
 @paperB:url("../img/paperB.jpg");
-@helvetica: Helvetica, Arial, sans-serif;
-@Kite:'Kite One', sans-serif;
 @colorB: black;
 @colorW: white;
 @colorRed: #BC0D08;
@@ -30,7 +28,7 @@ Theme Name: wpTemplate
   font-family: 'CaviarDreamsBold';
   src: url('../fonts/Caviar_Dreams_Bold-webfont.eot');
   src: url('../fonts/Caviar_Dreams_Bold-webfont.eot?#iefix') format('embedded-opentype'),
-  url('C../fonts/aviar_Dreams_Bold-webfont.woff') format('woff'),
+  url('../fonts/Caviar_Dreams_Bold-webfont.woff') format('woff'),
   url('../fonts/Caviar_Dreams_Bold-webfont.ttf') format('truetype'),
   url('../fonts/Caviar_Dreams_Bold-webfont.svg#CaviarDreamsBold') format('svg');
   font-weight: normal;
@@ -38,6 +36,7 @@ Theme Name: wpTemplate
 }
 
 @Caviar: 'CaviarDreamsBold', Arial, sans-serif;
+@Kite:'Kite One', sans-serif;
 
 
 /* DESIGN CONTENT */
@@ -45,7 +44,6 @@ Theme Name: wpTemplate
 body{
   font-size: 14px;
   background-image: @paperG;
-  font-family: @helvetica;
   background-repeat: repeat;
   color: @colorB;
 }
@@ -54,6 +52,7 @@ body{
   max-width: 960px;
   margin: 0 auto;
   margin-top: 1em;
+  min-height: 900px;
 }
 
 header{
@@ -69,7 +68,7 @@ p#logo{
 }
 
 p#logo a{
-	font-size: 2em;
+	font-size: 3em;
 	text-decoration: none;
 	font-family: @Caviar;
 	color: @colorW;
@@ -115,6 +114,7 @@ h3{
 	padding-top:  1em;
 	color: @colorW;
 	font-weight: bold;
+  font-family: @Caviar;
 }
 
 a{
@@ -189,8 +189,7 @@ nav a {
 		color: #C4212A;
 	}
 
-
-nav a:hover{
+nav a:hover, nav a:active{
 	background-image: @paperY;
 	color:  white;
     .column(12);
@@ -201,15 +200,15 @@ nav a:hover{
 	border-radius: 2px;
 	text-decoration: none;
 }
-	li.page-item-45 a:hover, #menu-item-47 a:hover{
+	li.page-item-45 a:hover, #menu-item-47 a:hover, #menu-item-47 a:active{
 		background-image: @paperG;
 		color:  white;
 	}
-	li.page-item-40 a:hover, #menu-item-49 a:hover{
+	li.page-item-40 a:hover, #menu-item-49 a:hover,  #menu-item-49 a:active{
 		background-image: @paperB;
 		color:  white;
 	}
-	li.page-item-42 a:hover, #menu-item-48 a:hover{
+	li.page-item-42 a:hover, #menu-item-48 a:hover,  #menu-item-48 a:active{
 		background-image: @paperR;
 		color:  white;
 	}
@@ -286,6 +285,7 @@ li p+p {
 
 .profile{
 	text-align: center;
+    height: 187.5px;
 }
 
 ol{
@@ -299,19 +299,18 @@ ol{
 }
 
 .skills li>p{
-	float: left;
-	width:  125px;
+	.column(4);
 }
 
-.level1, .level2, .level3, .level4{
+.level1, .level2, .level3, .level4, .level5{
 	background-image: url("../img/progress.png");
 	background-repeat: no-repeat;
-	width: 340px;
+	.column(8);
 	height: 25px;
-	display: inline-block;
+
 }
 
-.level1 p, .level2 p, .level3 p, .level4 p{
+.level1 p, .level2 p, .level3 p, .level4 p, .level5 p{
 	text-indent:-99999px;
 }
 
@@ -327,6 +326,10 @@ ol{
 		background-position: 0 -75px;
 	}
 
+    .level5{
+      background-position: 0 -100px;
+    }
+
 article.education li, article.experience li{
 	margin: 1em 0 1em 1.5em;
 }
@@ -338,24 +341,26 @@ article.education li, article.experience li{
 /*  Page blog */
 .wp-prev-next{
 	background-image: none;
-	width: 570px;
-	position: relative;
+	.column(12);
 }
 
 .wp-prev-next li{
-	height: 15px;
-	margin: 1em;
+  .column(3);
+  height: 25px;
 }
 
 .wp-prev-next a, .wp-prev-next li{
 	color: white;
 	font-size: 1em;
 	font-family:@Caviar;
+    padding: 0.5em 0;
 }
 
 .wp-prev-next li a:hover{
-	color: @colorBlue;
+	color: @colorGreen;
 	background-image: none;
+    background-color: white;
+    padding: 0.5em 0;
 }
 
 .tags{
@@ -363,8 +368,13 @@ article.education li, article.experience li{
 	color: @colorGreen
 }
 
-.byline{
+.posted .byline{
 	color:@colorGreen;
+  margin-top: 0;
+}
+
+.posted .byline a{
+  color: black;
 }
 
 .blog article section, .archive article section{
@@ -380,23 +390,63 @@ article.education li, article.experience li{
 	margin-bottom: 0.5em;
 }
 
+.posted{
+  background-image: none;
+  amrgin-top: 0;
+  height: 100%;
+}
+
+.article-footer{
+  background-image: none;
+  text-align: initial;
+  height: 100%;
+}
+
+.blog .entry-content li{
+  list-style-image: none;
+  margin-top: 1em;
+  list-style-type:disc;
+}
+
+.entry-content li{
+  margin-top: 1em;
+}
+
+.entry-content ul{
+  margin-left: 4em;
+}
+
+.blog .entry-content p{
+  margin-top: 1em;
+}
+
+.entry-content p a, .posted a:hover{
+  color: @colorGreen;
+}
+
+#archives-3 ul, #categories-2 ul{
+  margin-left: 1.5em;
+}
+
 /* Page portfolio */
 .page-id-40{
 	color: black;
 	background-image: @paperB;
 }
 
-.page-id-40 #main article{
-	position: absolute;
-	width: 880px;
+.page-id-40 #main{
+  .column(12);
 }
 
 .page-id-40 #main li{
-	float: left;
-	width: 30%;
-	margin-right: 3%;
+	.column(4);
 	list-style: none;
-	height: 350px;
+	height: 400px;
+}
+
+.post-40 li header{
+  background-image: none;
+  height: 30px;
 }
 
 .page-id-40 li>p{
@@ -418,7 +468,16 @@ article.education li, article.experience li{
 }
 
 .page-id-40 h2{
-	margin: 0.5em;
+  text-align: center;
+}
+
+.page-id-40 h2 a{
+  color: @colorBlue;
+}
+
+#post-40 li a{
+  text-align: center;
+  .column(12);
 }
 
 /* Page contact */
@@ -431,26 +490,13 @@ article.education li, article.experience li{
 	color: @colorRed;
 }
 
-.page-id-42 #content{
-	width: 950px;
-}
-
-.infoContact{
-	margin-top: 1em;
-	font-weight: bold;
-}
-
-form {
-  margin-bottom: 1em;
-}
-
 form p{
 	margin-top: 1em;
 }
 
 input, textarea {
-  width: 439px;
-  background: 1px solid #dedede;
+  width: 95%;
+  border: 1px solid #C4BCBC;
   padding: 10px;
   margin-top: 3px;
   margin-bottom: 1em;
@@ -466,9 +512,10 @@ textarea{
 }
 
 [type="submit"]{
-	width: 460px;
+    background-color: whitesmoke;
 	color: @colorRed;
 	font-family: @Kite;
+  width: 100%;
 }
 [type="submit"]:hover{
 	background-color: @colorRed;
@@ -491,6 +538,19 @@ input:focus, textarea:focus {
 	    opacity:0.7;
 	}
 
+.infoSup header{
+  background-image: none;
+  height: 25px;
+}
+
+.infoSup li{
+  list-style-image: none;
+}
+
+.infoSup p, .infoSup a{
+  font-family: @Kite;
+  margin: 1em 0;
+}
 
 /* FOOTER */
 footer {
@@ -501,6 +561,27 @@ footer {
   width: 100%;
   clear: both;
   height: 55px;
+}
+
+.copyright{
+  font-family: @Caviar;
+  padding-top: 1.25em;
+}
+
+.copyright a{
+  font-size: 1.25em;
+}
+
+.copyright a:hover{
+  text-decoration: none;
+}
+
+.home .copyright a:hover{
+  color: @colorYellow;
+}
+
+.page-id-40 .copyright a:hover{
+  color: @colorBlue;
 }
 
 /* Page Erreur */
@@ -522,53 +603,48 @@ footer {
 }
 
 /*************** MEDIA 945px - 770px **************/
-@media only screen and (min-width: 770px) and (max-width: 950px) {
 
-  nav, nav ul{
-    width: 100%
-  }
+@media only screen and (max-width: 950px) and (min-width: 770px) {
 
-  nav li{
-    margin: 0.2% 5% 0 5%;
+  .home, body, .page-id-40, .page-id-42{
+    background-image: none;
+    background-color: red;
   }
 
   article p{
     margin: 0em;
   }
 
-  #content{
-    margin: 100px 25px 0 25px;
-  }
-  .page-id-42 #content{
-    width: 100%;
+  figure{
+    .column(10);
+    .push(1);
+    margin-top: 1em;
   }
 
   .skills li{
     height: 50px;
   }
-  .skills li >p{
-    float: none;
+
+  .level1, .level2, .level3, .level4, .level5, .skills li > p{
+    .column(12);
   }
 
-  .level1, .level2, .level3, .level4{
+  #post-11 p{
     margin-left: 1em;
   }
 
-  .page-id-40 #content{
-    margin: 100px 15px 0px 15px;
-  }
-
-  input, textarea{
-    width: 95%;
-  }
-
   input[type="submit"]{
-    width: 100%;
+    margin-bottom: 0.5em
   }
 }
 
 /*************** MEDIA 482px - 768px **************/
-@media only screen and (min-width: 483px) and (max-width: 768px) {
+@media only screen and (min-width: 483px) and (max-width: 768px){
+
+  .home, body, .page-id-40, .page-id-42{
+    background-image: none;
+    background-color: blue;
+  }
 
   nav{
     width: 100%;
@@ -625,8 +701,8 @@ footer {
 /*************** MEDIA 481px **************/
 
 @media only screen and (max-width: 481px){
-  body.home{
-  /*background-color: yellow;
-  background-image: none;*/
+  .home, body, .page-id-40, .page-id-42{
+    background-image: none;
+    background-color: green;
   }
 }

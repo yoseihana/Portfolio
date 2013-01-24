@@ -50,12 +50,10 @@ Template Name: contact
 		    					</header>
 		    						<ul>
 				    				<?php 
-				    				$arg = array('post_type'=>'informations_contact', 'posts_per_page'=>10);
+				    				$arg = array('post_type'=>'informations_contact', 'posts_per_page'=>10, 'order'=>'ASC');
 				    				$loop = new WP_Query($arg, 'not-pagename=contact-me');
 				    				while ( $loop->have_posts() ) : $loop->the_post();?>
-				    				  
 					    				  <li>
-						    				  <p class="infoContact"><?php the_title(); ?></p>							      
 						    				  <div><?php the_content(); ?></div>
 					    				  </li>
 				    				  
