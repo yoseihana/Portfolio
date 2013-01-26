@@ -61,17 +61,17 @@ header{
   margin-bottom: 1em;
 }
 
-p#logo{
+#logo{
   .column(4);
   .push(4);
   height: 50px;
 }
 
-p#logo a{
-	font-size: 3em;
+#logo a{
 	text-decoration: none;
 	font-family: @Caviar;
 	color: @colorW;
+  font-size: 1.5em;
 }
 
 #content {
@@ -119,7 +119,6 @@ h3{
 
 a{
 	color:  @colorB;
-  text-decoration: none;
 }
 
 a:hover{
@@ -127,7 +126,7 @@ a:hover{
 	color: @colorGreen;
 }
 
-.page-id-11 article a:hover{
+.post-11 a:hover{
 	color: @colorYellow;
 }
 
@@ -138,7 +137,7 @@ a:hover{
 h2 {
   font-size: 1.5em;
   font-family: @Caviar;
-  padding: 0.5em;
+  padding: .5em 0 0.5em 0;
   color: black;
   clear: both;
 }
@@ -193,22 +192,22 @@ nav a:hover, nav a:active{
 	background-image: @paperY;
 	color:  white;
     .column(12);
-    padding: 0.25em 0.25em;
+    padding: 0.25em 0.2em;
     margin-top: 0.25em;
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
 	border-radius: 2px;
 	text-decoration: none;
 }
-	li.page-item-45 a:hover, #menu-item-47 a:hover, #menu-item-47 a:active{
+	.page-item-45 a:hover, #menu-item-47 a:hover, #menu-item-47 a:active{
 		background-image: @paperG;
 		color:  white;
 	}
-	li.page-item-40 a:hover, #menu-item-49 a:hover,  #menu-item-49 a:active{
+	.page-item-40 a:hover, #menu-item-49 a:hover,  #menu-item-49 a:active{
 		background-image: @paperB;
 		color:  white;
 	}
-	li.page-item-42 a:hover, #menu-item-48 a:hover,  #menu-item-48 a:active{
+	.page-item-42 a:hover, #menu-item-48 a:hover,  #menu-item-48 a:active{
 		background-image: @paperR;
 		color:  white;
 	}
@@ -233,10 +232,10 @@ aside header{
   text-transform: capitalize;
 }
 
-.archive article h1{
+.archive h1{
  	font-size: 1em;
  }
-.page h1, .blog h1, .archive article h1, .error404 h1, .archive h1{
+.page h1, .blog h1, .archive h1, .error404 h1, .archive h1{
 	color:  @colorW;
     font-size: 2em;
     margin: 0.45em;
@@ -260,7 +259,8 @@ article p {
 
 .image{
 	text-align: center;
-	margin:  1em 0;
+	margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 /*  Page Home */
@@ -277,6 +277,10 @@ li {
 .title {
   font-weight: bold;
   line-height: 1.5em;
+}
+
+figure{
+  margin: 0;
 }
 
 li p+p {
@@ -300,6 +304,11 @@ ol{
 
 .skills li>p{
 	.column(4);
+}
+
+.skills h2 a{
+  font-family: @Caviar;
+  text-decoration: none;
 }
 
 .level1, .level2, .level3, .level4, .level5{
@@ -330,13 +339,17 @@ ol{
       background-position: 0 -100px;
     }
 
-article.education li, article.experience li{
+.education li, .experience li{
 	margin: 1em 0 1em 1.5em;
 }
 
 .titleSidebar{
 	margin-bottom: 0.25em;
-	font-weight: bold
+	font-family: @Caviar;
+}
+
+.education p, .experience p{
+  margin-left: 0em;
 }
 /*  Page blog */
 .wp-prev-next{
@@ -356,7 +369,7 @@ article.education li, article.experience li{
     padding: 0.5em 0;
 }
 
-.wp-prev-next li a:hover{
+.wp-prev-next a:hover{
 	color: @colorGreen;
 	background-image: none;
     background-color: white;
@@ -377,7 +390,7 @@ article.education li, article.experience li{
   color: black;
 }
 
-.blog article section, .archive article section{
+.post section, .post section{
 	padding: 1em;
 	border: 1px dashed #A7A7A7;
 }
@@ -393,6 +406,7 @@ article.education li, article.experience li{
 .posted{
   background-image: none;
   height: 100%;
+  margin-top: 0;
 }
 
 .article-footer{
@@ -401,7 +415,7 @@ article.education li, article.experience li{
   height: 100%;
 }
 
-.blog .entry-content li, .archive .entry-content li{
+.post li{
   list-style-image: none;
   margin-top: 1em;
   list-style-type:disc;
@@ -419,7 +433,7 @@ article.education li, article.experience li{
   margin-top: 1em;
 }
 
-.entry-content p a, .posted a:hover{
+.blog p a, .posted a:hover{
   color: @colorGreen;
 }
 
@@ -437,10 +451,10 @@ article.education li, article.experience li{
   .column(12);
 }
 
-.page-id-40 #main li{
+.post-40 li{
 	.column(4);
 	list-style: none;
-	height: 400px;
+	height: 350px;
 }
 
 .post-40 li header{
@@ -448,21 +462,21 @@ article.education li, article.experience li{
   height: 30px;
 }
 
-.page-id-40 li>p{
+.post-40 li>p{
 	border: 1px dashed #A7A7A7;
 	padding: 0.25em;
 }
 
-#post-40 ol{
+.post-40 ol{
 	position: relative;
 	display: inline-block;
 }
 
-#page-40 ol p+p{
+.page-40 ol p+p{
 	margin: 0.5em 0;
 }
 
-#post-40 a:hover{
+.post-40 a:hover{
 	color: @colorBlue;
 }
 
@@ -472,9 +486,10 @@ article.education li, article.experience li{
 
 .page-id-40 h2 a{
   color: @colorBlue;
+  text-decoration: none;
 }
 
-#post-40 li a{
+.post-40 li a{
   text-align: center;
   .column(12);
 }
@@ -484,13 +499,20 @@ article.education li, article.experience li{
 	background-image: @paperR;
 }
 
-
-.page-id-42 .sidebar a:hover{
+.infoSup a:hover{
 	color: @colorRed;
+}
+
+form{
+  width: 100%;
 }
 
 form p{
 	margin-top: 1em;
+}
+
+ieldset{
+  display:inline;
 }
 
 input, textarea {
@@ -498,7 +520,6 @@ input, textarea {
   border: 1px solid #C4BCBC;
   padding: 10px;
   margin-top: 3px;
-  margin-bottom: 1em;
   font-size: 0.9em;
   color: #3a3a3a;
   border-radius:5px;
@@ -525,6 +546,10 @@ input:focus, textarea:focus {
     border:1px solid #97d6eb;
 }
 
+fieldset{
+  display: inline-block;
+}
+
 #envoyer {
     width:127px;
     height:38px;
@@ -546,9 +571,28 @@ input:focus, textarea:focus {
   list-style-image: none;
 }
 
-.infoSup p, .infoSup a{
+.infoSup p, .infoSup a, legend{
   font-family: @Kite;
   margin: 1em 0;
+  text-decoration: none;
+}
+
+legend{
+  margin-left: 1em;
+}
+
+label{
+  margin-top: 1em;
+  display: block;
+}
+
+label.error{
+  color: red;
+  margin-top: 0.25em;
+}
+
+#contactForm br{
+  display: none;
 }
 
 /* FOOTER */
@@ -569,6 +613,7 @@ footer {
 
 .copyright a{
   font-size: 1.25em;
+  text-decoration: none;
 }
 
 .copyright a:hover{
@@ -583,6 +628,10 @@ footer {
   color: @colorBlue;
 }
 
+.page-id-42 .copyright a:hover{
+  color: @colorRed;
+}
+
 /* Page Erreur */
 .error404 figure, .error404 #main{
   .column(12);
@@ -591,6 +640,11 @@ footer {
 .error404 img{
   .column(4);
   .push(4);
+  margin-bottom: 1em;
+}
+
+.error404 p{
+  margin-top: 1em;
 }
 
 /* Page catégorie */
@@ -613,6 +667,10 @@ footer {
     margin-top: 1em;
   }
 
+  .image{
+    .column(12);
+  }
+
   .skills li{
     height: 50px;
   }
@@ -621,7 +679,7 @@ footer {
     .column(12);
   }
 
-  #post-11 p{
+  .post-11 p{
     margin-left: 1em;
   }
 
@@ -711,7 +769,7 @@ footer {
     background-image: none;
   }
 
-  .page-id-40 #main li{
+  .post-40 li{
     .column(12);
     height: 100%;
   }
@@ -724,13 +782,17 @@ footer {
     height: 75px;
   }
 
+  .error404 img .image{
+    .column(12);
+  }
+
 }
 
 /*************** MEDIA 481px **************/
 
 @media only screen and (max-width: 481px){
 
-  p#logo{
+  #logo{
     .column(10);
     .push(2);
   }
@@ -813,7 +875,7 @@ footer {
     background-image: none;
   }
 
-  .page-id-40 #main li{
+  .post-40 li{
     .column(12);
     height: 100%;
   }
@@ -830,4 +892,24 @@ footer {
   .archive #main .article-header{
     height: 75px;
   }
+
+  .image img{
+    .column(10);
+    height: 100%;
+  }
+
+  .blog h1{
+    font-size: 1em;
+    margin-top: 1em;
+  }
+
+  .error404 img, .image{
+    .column(12);
+    margin-bottom: 1em;
+  }
+
+  #logo a{
+    font-size: 3em;
+  }
+
 }

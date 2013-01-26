@@ -3,7 +3,7 @@
 
     <section id="main" class="eightcol first clearfix" role="main">
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-        <article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
+        <article <?php post_class('clearfix'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
             <section class="entry-content clearfix" itemprop="articleBody">
                 <header>
                     <h1><?php the_title(); ?></h1>
@@ -13,12 +13,12 @@
             <!-- end article section -->
         </article>
 
-        <article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
+        <article <?php post_class('clearfix'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
             <section class="entry-content clearfix skills" itemprop="articleBody">
                 <header>
                     <h1>Compétences</h1>
                 </header>
-                <h2><a href="#web">Web</a></h2>
+                <h2><a href="#web" class="icon-down-hand">Web</a></h2>
                 <ol>
                     <?php
                     $arg = array('post_type' => 'Skills', 'posts_per_page' => 50, 'order' => 'ASC');
@@ -26,7 +26,7 @@
                     while ($loop->have_posts()) : $loop->the_post();?>
                         <?php $i = get_post_custom_values('Catégorie');
                         if ($i[0] == 'Web'): ?>
-                            <li id="web">
+                            <li class="web">
                                 <p><?php the_title(); ?></p>
 
                                 <div class='<?php $k = get_post_custom_values('level'); echo 'level' . $k[0]; ?>'>
@@ -36,7 +36,7 @@
                             <?php endif; ?>
                         <?php endwhile; ?>
                 </ol>
-                <h2><a href="#cms">CMS</a></h2>
+                <h2><a href="#cms" id="integration" class="icon-down-hand">CMS</a></h2>
                 <ol>
                     <?php
                     $arg = array('post_type' => 'Skills', 'posts_per_page' => 50, 'order' => 'ASC');
@@ -44,7 +44,7 @@
                     while ($loop->have_posts()) : $loop->the_post();?>
                         <?php $i = get_post_custom_values('Catégorie');
                         if ($i[0] == 'CMS'): ?>
-                            <li id="cms">
+                            <li class="cms">
                                 <p><?php the_title(); ?></p>
 
                                 <div class='<?php $k = get_post_custom_values('level'); echo 'level' . $k[0]; ?>'>
@@ -54,7 +54,7 @@
                             <?php endif; ?>
                         <?php endwhile; ?>
                 </ol>
-                <h2><a href="#db">Base de données</a></h2>
+                <h2><a href="#db" class="icon-down-hand">Base de données</a></h2>
                 <ol>
                     <?php
                     $arg = array('post_type' => 'Skills', 'posts_per_page' => 50, 'order' => 'ASC');
@@ -62,7 +62,7 @@
                     while ($loop->have_posts()) : $loop->the_post();?>
                         <?php $i = get_post_custom_values('Catégorie');
                         if ($i[0] == 'DB'): ?>
-                            <li id="db">
+                            <li class="db">
                                 <p><?php the_title(); ?></p>
 
                                 <div class='<?php $k = get_post_custom_values('level'); echo 'level' . $k[0]; ?>'>
@@ -72,7 +72,7 @@
                             <?php endif; ?>
                         <?php endwhile; ?>
                 </ol>
-                <h2><a href="#multimedia">Multimédia</a></h2>
+                <h2><a href="#multimedia" class="icon-down-hand">Multimédia</a></h2>
                 <ol>
                     <?php
                     $arg = array('post_type' => 'Skills', 'posts_per_page' => 50, 'order' => 'ASC');
@@ -80,7 +80,7 @@
                     while ($loop->have_posts()) : $loop->the_post();?>
                         <?php $i = get_post_custom_values('Catégorie');
                         if ($i[0] == 'Multimédia'): ?>
-                            <li id="multimedia">
+                            <li class="multimedia">
                                 <p><?php the_title(); ?></p>
 
                                 <div class='<?php $k = get_post_custom_values('level'); echo 'level' . $k[0]; ?>'>
@@ -90,7 +90,7 @@
                             <?php endif; ?>
                         <?php endwhile; ?>
                 </ol>
-                <h2><a href="#management">Management</a></h2>
+                <h2><a href="#management" class="icon-down-hand">Management</a></h2>
                 <ol>
                     <?php
                     $arg = array('post_type' => 'Skills', 'posts_per_page' => 50, 'order' => 'ASC');
@@ -98,7 +98,7 @@
                     while ($loop->have_posts()) : $loop->the_post();?>
                         <?php $i = get_post_custom_values('Catégorie');
                         if ($i[0] == 'Management'): ?>
-                            <li id="management">
+                            <li class="management">
                                 <p><?php the_title(); ?></p>
 
                                 <div class='<?php $k = get_post_custom_values('level'); echo 'level' . $k[0]; ?>'>
@@ -108,7 +108,7 @@
                             <?php endif; ?>
                         <?php endwhile; ?>
                 </ol>
-                <h2><a href="#langue">Langues</a></h2>
+                <h2><a href="#langue" class="icon-down-hand">Langues</a></h2>
                 <ol>
                     <?php
                     $arg = array('post_type' => 'Skills', 'posts_per_page' => 50, 'order' => 'ASC');
@@ -116,7 +116,7 @@
                     while ($loop->have_posts()) : $loop->the_post();?>
                         <?php $i = get_post_custom_values('Catégorie');
                         if ($i[0] == 'Langue'): ?>
-                            <li id="langues">
+                            <li class="langues">
                                 <p><?php the_title(); ?></p>
 
                                 <div class='<?php $k = get_post_custom_values('level'); echo 'level' . $k[0]; ?>'>
@@ -126,7 +126,7 @@
                             <?php endif; ?>
                         <?php endwhile; ?>
                 </ol>
-                <h2><a href="#plus">Et encore plus de compétences!</a></h2>
+                <h2><a href="#plus" class="icon-down-hand">Et encore plus de compétences!</a></h2>
 
                 <ol>
                     <?php
@@ -135,7 +135,7 @@
                     while ($loop->have_posts()) : $loop->the_post();?>
                         <?php $i = get_post_custom_values('Catégorie');
                         if ($i[0] == 'Plus'): ?>
-                            <li id="plus">
+                            <li class="plus">
                                 <p><?php the_title(); ?></p>
 
                                 <div class='<?php $k = get_post_custom_values('level'); echo 'level' . $k[0]; ?>'>
@@ -182,7 +182,7 @@
         <section class="sidebar">
             <article class="education">
                 <header>
-                    <h3>Education</h3>
+                    <h3>Diplômes</h3>
                 </header>
                 <ol>
                     <?php
@@ -220,6 +220,8 @@
         </section>
     </aside>
     <!-- end #right -->
-
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="http://jzaefferer.github.com/jquery-validation/jquery.validate.js" type="text/javascript" ></script>
+    <script src="/wp-content/themes/wpTemplate/library/js/jquery.js" type="text/javascript"></script>
 </div> <!-- end #content -->
 <?php get_footer(); ?>

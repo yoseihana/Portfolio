@@ -51,7 +51,7 @@
 							    <header class="posted article-header">
 								   <h2><?php the_title(); ?></h2>
 
-								    <p class="byline vcard">Posté le <time class="updated" datetime="<?php echo the_time('Y-m-j'); ?>" pubdate><?php the_time('F jS, Y'); ?></time> par <span class="author"><?php the_author_posts_link(); ?></span> dans la catégorie <?php the_category(', '); ?>.</p>
+								    <p class="byline vcard">Posté le <time class="updated" datetime="<?php echo the_time('j-m-Y'); ?>"><?php the_time('j-m-Y'); ?></time> par <span class="author"><?php the_author_posts_link(); ?></span> dans la catégorie <?php the_category(', '); ?>.</p>
                                     </header>
 							    </header> <!-- end article header -->
 						

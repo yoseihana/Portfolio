@@ -5,19 +5,17 @@
     $message = $_POST['commentaire'];
     $de = 'From: abDesign'; 
     $a = 'anna.buffart@gmail.com'; 
-    $sujet = 'Un nouveau message';
+    $sujet = 'Un nouveau message sur anna.buffart.eu';
     
-    $body = "De: $name\n Email: $email\n Message:\n $message";
+    $body = "Bonjour,\nUn nouveau message a été envoyé depuis le site anna.buffart.eu. \nDe: $surname $name\n Email: $email\n Message:\n $message";
     
     mail($a, $sujet, $body, $de);
     
    if(isset($_POST['submit'])){
     	if(mail($a, $sujet, $body, $de)){
-    		echo'<p>Thanks for you message, it has been sent.</p>';
-    		//header('Location: form-success.php');
+            header('Location: http://anna.buffart.eu/contact/');
     	}else{
-    		echo '<p>Huston, we have a problem, something went wrong, please try again.</p>';
-    		//redirect('abdesign.olympe.in/wpblog');
+            header('Location: http://anna.buffart.eu/404error');
     	}
     }
     

@@ -6,7 +6,7 @@
 
 					    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 					
-					    <article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
+					    <article <?php post_class('clearfix'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 					
 						    <section class="entry-content clearfix" itemprop="articleBody">
 								    <header>
@@ -22,7 +22,7 @@
 									    	  <h2><a href="<?php $k = get_post_custom_values('url'); echo $k[0]; ?>" title="<?php $k = get_post_custom_values('url'); echo $k[0]; ?>"><?php the_title(); ?></a></h2>
 									    	</header> 
 									    	   <div>
-									    	  	<p><a href="<?php $k = get_post_custom_values('url'); echo $k[0]; ?>" title="<?php $k = get_post_custom_values('url'); echo $k[0]; ?>"><?php the_post_thumbnail(); ?></a></p>
+									    	  	<figure><a href="<?php $k = get_post_custom_values('url'); echo $k[0]; ?>" title="<?php $k = get_post_custom_values('url'); echo $k[0]; ?>"><?php the_post_thumbnail(); ?></a></figure>
 									    	  	<p><?php $k = get_post_custom_values('Techniques'); echo $k[0]; ?></p>
 									    	  	<p><strong><?php the_terms($post->ID, "techniques", "Classé dans: ", " ", " "); ?></strong></p>
 									    	  </div>

@@ -17,7 +17,7 @@
                 <section class="entry-content clearfix">
                     <header class="posted">
                         <p class="byline vcard">Posté le
-                            <time class="updated" datetime="<?php echo the_time('j-m-Y'); ?>" pubdate><?php the_time(get_option('date_format')); ?></time>
+                            <time class="updated" datetime="<?php echo the_time('j-m-Y'); ?>"><?php the_time('j-m-Y'); ?></time>
                             par <span class="author"><?php the_author_posts_link(); ?></span> dans la catégorie <?php the_category(', '); ?>.
                         </p>
                     </header>
