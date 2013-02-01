@@ -11,9 +11,9 @@ Template Name: contact
 
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-        <article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
+        <div id="post-<?php the_ID(); ?>" <?php post_class('clearfix keyContent'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 
-            <section class="entry-content clearfix" itemprop="articleBody">
+            <div class="entry-content clearfix" itemprop="articleBody">
                 <header>
                     <h1><?php the_title(); ?></h1>
                 </header>
@@ -25,14 +25,14 @@ Template Name: contact
                         <?php the_content(); ?>
                     </fieldset>
                 </form>
-            </section>
+            </div>
             <!-- end article section -->
 
-        </article> <!-- end article -->
+        </div> <!-- end article -->
 
         <?php endwhile; else : ?>
 
-        <article id="post-not-found" class="hentry clearfix">
+        <div id="post-not-found" class="hentry clearfix">
             <header class="article-header">
                 <h1><?php _e("Oops, Post Not Found!", "bonestheme"); ?></h1>
             </header>
@@ -42,16 +42,19 @@ Template Name: contact
             <footer class="article-footer">
                 <p><?php _e("This is the error message in the page.php template.", "bonestheme"); ?></p>
             </footer>
-        </article>
+        </div>
 
         <?php endif; ?>
 
     </section>
     <!-- end #main -->
 
-    <section class="right">
+    <aside class="right">
+        <header class="titleOutliner">
+            <h2>Me contacter</h2>
+        </header>
         <section class="sidebar">
-            <article class="infoSup">
+            <div class="infoSup">
                 <header>
                     <h3><?php _e('Keep in touch'); ?></h3>
                 </header>
@@ -61,17 +64,28 @@ Template Name: contact
                     $loop = new WP_Query($arg, 'not-pagename=contact-me');
                     while ($loop->have_posts()) : $loop->the_post();?>
                         <li>
-                            <div><?php the_content(); ?></div>
+                            <?php the_content(); ?>
                         </li>
 
                         <?php endwhile; ?>
                 </ul>
-            </article>
+            </div>
         </section>
-    </section>
+        <section class="sidebar">
+            <div class="infoSup">
+                <header>
+                    <h3><?php _e('Newsletter'); ?></h3>
+                </header>
+                <!-- // MAILCHIMP SUBSCRIBE CODE \\ -->
+                <a href="http://eepurl.com/uOgGf">Vous désirez être tenu informé de mes nouveautés? Par ici les inscriptions!</a>
+                <!-- \\ MAILCHIMP SUBSCRIBE LINK // -->
+            </div>
+        </section>
+
+    </aside>
 
 </div> <!-- end #content -->
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="http://jzaefferer.github.com/jquery-validation/jquery.validate.js" type="text/javascript"></script>
-<script src="/wp-content/themes/wpTemplate/library/js/jquery.js" type="text/javascript"></script>
+<script src="<?php bloginfo('template_directory'); ?>/library/js/jquery.js" type="text/javascript"></script>
 <?php get_footer(); ?>

@@ -3,27 +3,23 @@
 <div id="content">
 
     <section id="main" class="eightcol first clearfix" role="main">
-
+        <header class="titleOutliner">
+            <h1>Blog</h1>
+        </header>
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
         <article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article">
-            <section>
+            <div class="entry-content page">
                 <header class="article-header">
-                    <!-- <h1 class="h2"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>-->
                     <h1 class="h2"><?php the_title(); ?></h1>
                 </header>
                 <!-- end article header -->
-
-                <section class="entry-content clearfix">
-                    <header class="posted">
                         <p class="byline vcard">Posté le
                             <time class="updated" datetime="<?php echo the_time('j-m-Y'); ?>"><?php the_time('j-m-Y'); ?></time>
                             par <span class="author"><?php the_author_posts_link(); ?></span> dans la catégorie <?php the_category(', '); ?>.
                         </p>
-                    </header>
                     <figure class="image"><?php the_post_thumbnail('medium'); ?></figure>
                     <div><?php the_content(); ?></div>
-                </section>
                 <!-- end article section -->
 
                 <footer class="article-footer">
@@ -32,8 +28,7 @@
 
                 </footer>
                 <!-- end article footer -->
-            </section>
-            <!--  <?php // comments_template(); // uncomment if you want to use them ?> -->
+            </div>
 
         </article> <!-- end article -->
 
@@ -45,6 +40,9 @@
             <?php } else
         { ?>
             <nav class="wp-prev-next">
+                <header class="titleOutliner">
+                    <h1>Pagination</h1>
+                </header>
                 <ul class="clearfix">
                     <li class="prev-link"><?php next_posts_link('&laquo; Précédent') ?></li>
                     <li class="next-link"><?php previous_posts_link('Suivant &raquo;') ?></li>
@@ -71,10 +69,13 @@
     </section>
     <!-- end #main -->
 
-    <section class="right">
+    <aside class="right">
+        <header class="titleOutliner">
+            <h1>Archives et Catégories</h1>
+        </header>
         <?php get_sidebar('primary'); ?>
         <?php get_sidebar('secondary'); ?>
-    </section>
+    </aside>
 
 </div> <!-- end #content -->
 

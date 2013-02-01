@@ -6,9 +6,9 @@
 
 					    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 					
-					    <article <?php post_class('clearfix'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
+					    <div <?php post_class('clearfix keyContent'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 					
-						    <section class="entry-content clearfix" itemprop="articleBody">
+						    <div class="entry-content clearfix" itemprop="articleBody">
 								    <header>
 								    	<h1><?php the_title(); ?></h1>
 								    </header>
@@ -24,22 +24,14 @@
 									    	   <div>
 									    	  	<figure><a href="<?php $k = get_post_custom_values('url'); echo $k[0]; ?>" title="<?php $k = get_post_custom_values('url'); echo $k[0]; ?>"><?php the_post_thumbnail(); ?></a></figure>
 									    	  	<p><?php $k = get_post_custom_values('Techniques'); echo $k[0]; ?></p>
-									    	  	<p><strong><?php the_terms($post->ID, "techniques", "Classé dans: ", " ", " "); ?></strong></p>
+									    	  	<!--<p><strong><?php //the_terms($post->ID, "techniques", "Classé dans: ", " ", " "); ?></strong></p>-->
 									    	  </div>
 								    	  </li>
 									    <?php endwhile; ?>
 								    </ol>
-							</section> <!-- end article section -->
-						
-						    <footer class="article-footer">
-			
-							    <?php the_tags('<p class="tags"><span class="tags-title">Tags:</span> ', ', ', '</p>'); ?>
-							
-						    </footer> <!-- end article footer -->
-						    
-						    <?php comments_template(); ?>
+							</div> <!-- end div -->
 					
-					    </article> <!-- end article -->
+					    </div> <!-- end div -->
 					
 					    <?php endwhile; else : ?>
 					
