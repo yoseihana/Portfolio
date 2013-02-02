@@ -77,8 +77,19 @@ Template Name: contact
                     <h3><?php _e('Newsletter'); ?></h3>
                 </header>
                 <!-- // MAILCHIMP SUBSCRIBE CODE \\ -->
-                <a href="http://eepurl.com/uOgGf">Vous désirez être tenu informé de mes nouveautés? Par ici les inscriptions!</a>
+                <!--<a href="http://eepurl.com/uOgGf">Vous désirez être tenu informé de mes nouveautés? Par ici les inscriptions!</a>-->
                 <!-- \\ MAILCHIMP SUBSCRIBE LINK // -->
+                <p>Pour être tenu informé de toutes mes nouvelles productions. J'emploie un singe facteur, faites le bien travailler.</p>
+                <!-- Begin MailChimp Signup Form -->
+                <link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+                <div id="mc_embed_signup">
+                    <form action="http://buffart.us6.list-manage.com/subscribe/post?u=aec8a63a240142a5f4aa3bef1&amp;id=298a613e8a" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                        <label for="mce-EMAIL">S'inscrire à ma newsletter</label>
+                        <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="adresse email" required>
+                        <div class="clear"><input type="submit" value="S'inscrire" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+                    </form>
+                </div>
+                <!--End mc_embed_signup-->
             </div>
         </section>
 
