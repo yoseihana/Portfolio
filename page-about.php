@@ -128,8 +128,9 @@
                         </li>
                         <?php endif; ?>
                     <?php endwhile; ?>
+                <li>(Les atouts idéals d'une stagiaire!)</li>
             </ol>
-            <p>(Les atouts idéales d'une stagiaire!)</p>
+
         </section>
         <!-- end article section -->
     </div> <!-- end article -->
